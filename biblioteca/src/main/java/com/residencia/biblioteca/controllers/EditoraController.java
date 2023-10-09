@@ -29,7 +29,7 @@ public class EditoraController {
 		return new ResponseEntity<>(editoraService.ListarEditoras(), HttpStatus.OK);
 	}
 
-	// O corringa e {id}
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<Editora> buscarPorId(@PathVariable Integer id) {
 		return new ResponseEntity<>(editoraService.buscarEditorPorId(id), HttpStatus.OK);
@@ -47,6 +47,7 @@ public class EditoraController {
 
 	@DeleteMapping
 	public ResponseEntity<String> deletarEditora(@RequestBody Editora editora) {
+		editoraService.deletarEditora(editora);
 		return new ResponseEntity<>("Deletado com Sucesso!", HttpStatus.OK);
 	}
 }
